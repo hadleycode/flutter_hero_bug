@@ -9,15 +9,10 @@ class ScreenB extends StatefulWidget {
 class _ScreenBState extends State<ScreenB> {
   dynamic makeCard(int index) {
     return Card(
-      child: Container(
-        child: ListTile(
-          leading: Container(
-            child: Hero(
-                tag: 'image$index',
-                child: Image.asset('assets/images/$index.png')),
-          ),
-          title: Text('Card $index'),
-        ),
+      child: ListTile(
+        leading: Hero(
+            tag: 'image$index', child: Image.asset('assets/images/$index.png')),
+        title: Text('Card $index'),
       ),
     );
   }
@@ -27,17 +22,13 @@ class _ScreenBState extends State<ScreenB> {
     return Scaffold(
       appBar: AppBar(title: Text('Screen B')),
       body: SafeArea(
-        child: Container(
-          child: Scrollbar(
-            child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemCount: 14,
-              itemBuilder: (BuildContext context, int index) {
-                return makeCard(index + 1);
-              },
-            ),
-          ),
+        child: ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          itemCount: 14,
+          itemBuilder: (BuildContext context, int index) {
+            return makeCard(index + 1);
+          },
         ),
       ),
     );
