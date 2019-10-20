@@ -11,7 +11,10 @@ class _ScreenBState extends State<ScreenB> {
     return Card(
       child: ListTile(
         leading: Hero(
-            tag: 'image$index', child: Image.asset('assets/images/$index.png')),
+          tag: 'image$index',
+          child: Image.asset('assets/images/$index.png'),
+          transitionOnUserGestures: true,
+        ),
         title: Text('Card $index'),
       ),
     );

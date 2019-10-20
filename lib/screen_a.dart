@@ -13,7 +13,10 @@ class _ScreenAState extends State<ScreenA> {
 
     for (int index = 1; index < 4; index++) {
       Widget item = Hero(
-          tag: 'image$index', child: Image.asset('assets/images/$index.png'));
+        tag: 'image$index',
+        child: Image.asset('assets/images/$index.png'),
+        transitionOnUserGestures: true,
+      );
       selectedImages.add(item);
     }
     return selectedImages;
