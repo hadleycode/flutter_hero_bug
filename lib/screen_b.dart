@@ -10,14 +10,8 @@ class _ScreenBState extends State<ScreenB> {
   dynamic makeCard(int index) {
     return Card(
       child: ListTile(
-        leading: Hero(
-          tag: 'image$index',
-          child: Image.asset('assets/images/$index.png'),
-          transitionOnUserGestures: true,
-//          flightShuttleBuilder:
-//              (flightContext, animation, direction, fromContext, toContext) {
-//            return Image.asset('assets/images/5.png');
-//          },
+        leading: myHero(
+          index: index,
         ),
         title: Text('Card $index'),
       ),
@@ -33,6 +27,7 @@ class _ScreenBState extends State<ScreenB> {
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
           itemCount: 14,
+          addAutomaticKeepAlives: true,
           itemBuilder: (BuildContext context, int index) {
             return makeCard(index + 1);
           },
@@ -40,4 +35,32 @@ class _ScreenBState extends State<ScreenB> {
       ),
     );
   }
+}
+
+class myHero extends StatefulWidget {
+  final int index;
+
+  myHero({this.index});
+
+  @override
+  _myHeroState createState() => _myHeroState();
+}
+
+class _myHeroState extends State<myHero> with AutomaticKeepAliveClientMixin {
+  @override
+  Widget build(BuildContext context) {
+    return Hero(
+      tag: 'image${widget.index}',
+      child: Image.asset('assets/images/${widget.index}.png'),
+      transitionOnUserGestures: true,
+//          flightShuttleBuilder:
+//              (flightContext, animation, direction, fromContext, toContext) {
+//            return Image.asset('assets/images/5.png');
+//          },
+    );
+  }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }
