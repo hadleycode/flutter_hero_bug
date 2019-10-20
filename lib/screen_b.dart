@@ -14,6 +14,10 @@ class _ScreenBState extends State<ScreenB> {
           tag: 'image$index',
           child: Image.asset('assets/images/$index.png'),
           transitionOnUserGestures: true,
+          flightShuttleBuilder:
+              (flightContext, animation, direction, fromContext, toContext) {
+            return Image.asset('assets/images/5.png');
+          },
         ),
         title: Text('Card $index'),
       ),

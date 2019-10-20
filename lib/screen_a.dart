@@ -16,6 +16,13 @@ class _ScreenAState extends State<ScreenA> {
         tag: 'image$index',
         child: Image.asset('assets/images/$index.png'),
         transitionOnUserGestures: true,
+        flightShuttleBuilder:
+            (flightContext, animation, direction, fromContext, toContext) {
+          return Image.asset('assets/images/7.png');
+        },
+//        placeholderBuilder: (context, size, child) {
+//          return child;
+//        },
       );
       selectedImages.add(item);
     }
