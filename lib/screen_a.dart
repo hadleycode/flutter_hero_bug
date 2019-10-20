@@ -20,9 +20,9 @@ class _ScreenAState extends State<ScreenA> {
             (flightContext, animation, direction, fromContext, toContext) {
           return Image.asset('assets/images/7.png');
         },
-//        placeholderBuilder: (context, size, child) {
-//          return child;
-//        },
+        placeholderBuilder: (context, size, child) {
+          return child;
+        },
       );
       selectedImages.add(item);
     }
